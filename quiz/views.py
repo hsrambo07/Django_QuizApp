@@ -21,7 +21,7 @@ from rest_framework.response import Response
 
 class QuizView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
-    authentication_classes = [SessionAuthentication]
+    authentication_classes = [TokenAuthentication]
     queryset = User.objects.all()
     serializer_class = UserSerializer
     
@@ -29,7 +29,7 @@ class QuizView(generics.ListAPIView):
 #using query filter
 class CategoryView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
-    authentication_classes = [SessionAuthentication]
+    authentication_classes = [TokenAuthentication]
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
     model = Quiz
@@ -43,7 +43,7 @@ class CategoryView(generics.ListAPIView):
 #with slashes
 class CategoryViewQuery(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
-    authentication_classes = [SessionAuthentication]
+    authentication_classes = [TokenAuthentication]
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
     model = Quiz
